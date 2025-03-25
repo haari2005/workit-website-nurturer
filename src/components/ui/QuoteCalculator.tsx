@@ -22,7 +22,7 @@ const packages: Package[] = [
     id: 'basic',
     name: 'Basic Package',
     description: 'Perfect for small businesses and personal websites',
-    basePrice: 1499,
+    basePrice: 99999,
     features: [
       'Custom Design',
       'Up to 5 Pages',
@@ -36,7 +36,7 @@ const packages: Package[] = [
     id: 'advanced',
     name: 'Advanced Package',
     description: 'Ideal for growing businesses and professional sites',
-    basePrice: 2999,
+    basePrice: 199999,
     features: [
       'Premium Custom Design',
       'Up to 10 Pages',
@@ -52,7 +52,7 @@ const packages: Package[] = [
     id: 'ecommerce',
     name: 'E-Commerce Package',
     description: 'Complete solution for online stores',
-    basePrice: 4999,
+    basePrice: 349999,
     features: [
       'Premium Custom Design',
       'Up to 15 Pages',
@@ -65,16 +65,48 @@ const packages: Package[] = [
       '6 Months Support',
     ],
   },
+  {
+    id: 'business-cards',
+    name: 'Business Cards Package',
+    description: 'Digital and physical business card solutions',
+    basePrice: 24999,
+    features: [
+      'Professional Card Design',
+      'Digital Business Card',
+      'Print-Ready Files',
+      'NFC Integration Option',
+      'QR Code Integration',
+      'Social Media Links',
+      '2 Revision Rounds',
+    ],
+  },
+  {
+    id: 'nfc',
+    name: 'NFC Services Package',
+    description: 'Smart contactless solutions for your business',
+    basePrice: 39999,
+    features: [
+      'NFC Card/Tag Setup',
+      'Digital Profile Creation',
+      'Contact Information Integration',
+      'Social Media Integration',
+      'Analytics Dashboard',
+      'Easy Update System',
+      '3 Months Technical Support',
+    ],
+  },
 ];
 
 const additionalOptions: Option[] = [
-  { id: 'blog', name: 'Blog Section', price: 499 },
-  { id: 'logo', name: 'Logo Design', price: 299 },
-  { id: 'analytics', name: 'Analytics Setup', price: 199 },
-  { id: 'newsletter', name: 'Newsletter Integration', price: 249 },
-  { id: 'social', name: 'Social Media Integration', price: 199 },
-  { id: 'extra-pages', name: 'Additional 5 Pages', price: 499 },
-  { id: 'maintenance', name: '12 Month Maintenance', price: 999 },
+  { id: 'blog', name: 'Blog Section', price: 29999 },
+  { id: 'logo', name: 'Logo Design', price: 19999 },
+  { id: 'analytics', name: 'Analytics Setup', price: 12999 },
+  { id: 'newsletter', name: 'Newsletter Integration', price: 14999 },
+  { id: 'social', name: 'Social Media Integration', price: 12999 },
+  { id: 'extra-pages', name: 'Additional 5 Pages', price: 34999 },
+  { id: 'maintenance', name: '12 Month Maintenance', price: 69999 },
+  { id: 'nfc-cards', name: 'NFC Business Cards (pack of 50)', price: 29999 },
+  { id: 'qr-integration', name: 'QR Code Integration', price: 9999 },
 ];
 
 const QuoteCalculator = () => {
@@ -107,10 +139,10 @@ const QuoteCalculator = () => {
   };
   
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
+      currency: 'INR',
+      maximumFractionDigits: 0,
     }).format(price);
   };
   

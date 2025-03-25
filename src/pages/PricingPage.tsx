@@ -17,7 +17,7 @@ const packages: Package[] = [
   {
     name: 'Basic Package',
     description: 'Perfect for small businesses and personal websites',
-    price: 1499,
+    price: 99999,
     features: [
       'Custom Design',
       'Up to 5 Pages',
@@ -30,7 +30,7 @@ const packages: Package[] = [
   {
     name: 'Advanced Package',
     description: 'Ideal for growing businesses and professional sites',
-    price: 2999,
+    price: 199999,
     features: [
       'Premium Custom Design',
       'Up to 10 Pages',
@@ -46,7 +46,7 @@ const packages: Package[] = [
   {
     name: 'E-Commerce Package',
     description: 'Complete solution for online stores',
-    price: 4999,
+    price: 349999,
     features: [
       'Premium Custom Design',
       'Up to 15 Pages',
@@ -59,13 +59,41 @@ const packages: Package[] = [
       '6 Months Support',
     ],
   },
+  {
+    name: 'Business Cards',
+    description: 'Digital and physical business card solutions',
+    price: 24999,
+    features: [
+      'Professional Card Design',
+      'Digital Business Card',
+      'Print-Ready Files',
+      'NFC Integration Option',
+      'QR Code Integration',
+      'Social Media Links',
+      '2 Revision Rounds',
+    ],
+  },
+  {
+    name: 'NFC Services',
+    description: 'Smart contactless solutions for your business',
+    price: 39999,
+    features: [
+      'NFC Card/Tag Setup',
+      'Digital Profile Creation',
+      'Contact Information Integration',
+      'Social Media Integration',
+      'Analytics Dashboard',
+      'Easy Update System',
+      '3 Months Technical Support',
+    ],
+  },
 ];
 
 const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
+    currency: 'INR',
+    maximumFractionDigits: 0,
   }).format(price);
 };
 
@@ -188,7 +216,7 @@ const PricingPage = () => {
                     <div>
                       <h3 className="font-medium mb-1">Do you offer ongoing maintenance?</h3>
                       <p className="text-muted-foreground">
-                        Yes, we offer monthly maintenance plans starting at $99/month that include regular updates, security patches, and technical support.
+                        Yes, we offer monthly maintenance plans starting at ₹6,999/month that include regular updates, security patches, and technical support.
                       </p>
                     </div>
                   </div>
@@ -200,7 +228,7 @@ const PricingPage = () => {
                     <div>
                       <h3 className="font-medium mb-1">What if I need additional pages?</h3>
                       <p className="text-muted-foreground">
-                        Additional pages beyond the package limits can be added for $199 per page, depending on complexity.
+                        Additional pages beyond the package limits can be added for ₹9,999 per page, depending on complexity.
                       </p>
                     </div>
                   </div>

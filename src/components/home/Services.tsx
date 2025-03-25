@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Code, ShoppingBag, Paintbrush, Search, Wrench, ArrowRight } from 'lucide-react';
+import { Code, ShoppingBag, Paintbrush, Search, Wrench, ArrowRight, CreditCard, Smartphone } from 'lucide-react';
 
 const services = [
   {
@@ -23,6 +23,20 @@ const services = [
     description: 'Transform your outdated site into a modern, high-performing digital presence.',
     icon: Paintbrush,
     color: 'from-purple-500/20 to-violet-500/20',
+  },
+  {
+    id: 'business-cards',
+    title: 'Business Cards',
+    description: 'Professional digital and physical business cards designed to make lasting impressions.',
+    icon: CreditCard,
+    color: 'from-yellow-500/20 to-amber-500/20',
+  },
+  {
+    id: 'nfc',
+    title: 'NFC Services',
+    description: 'Smart NFC solutions for contactless sharing of information and digital business cards.',
+    icon: Smartphone,
+    color: 'from-pink-500/20 to-rose-500/20',
   },
   {
     id: 'seo',
