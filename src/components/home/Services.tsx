@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Code, ShoppingBag, Paintbrush, Search, Wrench, ArrowRight, CreditCard, Smartphone } from 'lucide-react';
+import { Code, ShoppingBag, Paintbrush, Search, CreditCard, Smartphone, ArrowRight } from 'lucide-react';
 
 const services = [
   {
@@ -44,13 +44,6 @@ const services = [
     description: 'Optimize your site for search engines and enhance loading speeds for better results.',
     icon: Search,
     color: 'from-orange-500/20 to-amber-500/20',
-  },
-  {
-    id: 'maintenance',
-    title: 'Maintenance & Support',
-    description: 'Keep your website secure, updated, and running smoothly with our ongoing support.',
-    icon: Wrench,
-    color: 'from-red-500/20 to-rose-500/20',
   },
 ];
 

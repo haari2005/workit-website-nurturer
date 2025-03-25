@@ -2,7 +2,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, ShoppingBag, Paintbrush, Search, Wrench, CheckCircle } from 'lucide-react';
+import { ArrowRight, Code, ShoppingBag, Paintbrush, Search, CreditCard, Smartphone, CheckCircle } from 'lucide-react';
 
 const services = [
   {
@@ -66,18 +66,33 @@ const services = [
     ],
   },
   {
-    id: 'maintenance',
-    title: 'Maintenance & Support',
-    description: 'Keep your website secure, updated, and running smoothly with our ongoing support.',
-    icon: Wrench,
-    color: 'from-red-500/20 to-rose-500/20',
+    id: 'business-cards',
+    title: 'Business Cards',
+    description: 'Professional digital and physical business cards designed to make lasting impressions.',
+    icon: CreditCard,
+    color: 'from-yellow-500/20 to-amber-500/20',
     features: [
-      'Regular software updates',
-      'Security monitoring and patches',
-      'Performance monitoring',
-      'Content updates assistance',
-      'Technical issue resolution',
-      '24/7 emergency support',
+      'Custom design to match your brand',
+      'High-quality printing options',
+      'Digital business card solutions',
+      'QR code integration',
+      'Eco-friendly material options',
+      'Quick turnaround time',
+    ],
+  },
+  {
+    id: 'nfc',
+    title: 'NFC Services',
+    description: 'Smart NFC solutions for contactless sharing of information and digital business cards.',
+    icon: Smartphone,
+    color: 'from-pink-500/20 to-rose-500/20',
+    features: [
+      'NFC-enabled business cards',
+      'Contactless information sharing',
+      'Easy profile updates',
+      'Analytics and tracking capabilities',
+      'Compatible with all NFC-enabled devices',
+      'Eco-friendly digital alternative',
     ],
   },
 ];
@@ -93,7 +108,7 @@ const ServicesPage = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight mb-6">Our Services</h1>
               <p className="text-lg text-muted-foreground mb-8">
-                From custom web development to ongoing maintenance, we offer comprehensive solutions
+                From custom web development to NFC solutions, we offer comprehensive services
                 to meet all your digital needs.
               </p>
               <Link to="/contact" className="btn-primary inline-flex items-center px-6 py-3 h-auto">
