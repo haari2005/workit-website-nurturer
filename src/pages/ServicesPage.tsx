@@ -2,7 +2,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, ShoppingBag, Paintbrush, Search, Wrench, CheckCircle, CreditCard, Smartphone } from 'lucide-react';
+import { ArrowRight, Code, ShoppingBag, Paintbrush, Search, Wrench, CheckCircle } from 'lucide-react';
 
 const services = [
   {
@@ -51,40 +51,6 @@ const services = [
     ],
   },
   {
-    id: 'business-cards',
-    title: 'Business Cards',
-    description: 'Professional digital and physical business cards designed to make lasting impressions.',
-    icon: CreditCard,
-    color: 'from-yellow-500/20 to-amber-500/20',
-    features: [
-      'Professional custom design',
-      'Digital business card creation',
-      'NFC integration option',
-      'QR code integration',
-      'Print-ready high-quality files',
-      'Social media profile linking',
-      'Contact information management',
-      'Analytics for card usage (digital)',
-    ],
-  },
-  {
-    id: 'nfc',
-    title: 'NFC Services',
-    description: 'Smart NFC solutions for contactless sharing of information and digital business cards.',
-    icon: Smartphone,
-    color: 'from-pink-500/20 to-rose-500/20',
-    features: [
-      'Custom NFC card/tag setup',
-      'Digital profile creation and hosting',
-      'Contactless information sharing',
-      'Business card digitization',
-      'Social media integration',
-      'Analytics dashboard',
-      'Easy content updating system',
-      'Compatible with all modern smartphones',
-    ],
-  },
-  {
     id: 'seo',
     title: 'SEO & Performance',
     description: 'Optimize your site for search engines and enhance loading speeds for better results.',
@@ -127,7 +93,7 @@ const ServicesPage = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight mb-6">Our Services</h1>
               <p className="text-lg text-muted-foreground mb-8">
-                From custom web development to business cards with NFC technology, we offer comprehensive solutions
+                From custom web development to ongoing maintenance, we offer comprehensive solutions
                 to meet all your digital needs.
               </p>
               <Link to="/contact" className="btn-primary inline-flex items-center px-6 py-3 h-auto">
