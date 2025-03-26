@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
+import { toast } from 'sonner';
+import { sendQuoteEmail } from '@/utils/emailService';
 
 type Package = {
   id: string;
@@ -113,6 +115,7 @@ const QuoteCalculator = () => {
   const [selectedPackage, setSelectedPackage] = useState<string>('basic');
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [isSaving, setIsSaving] = useState<boolean>(false);
   
   useEffect(() => {
     calculateTotal();
@@ -144,6 +147,42 @@ const QuoteCalculator = () => {
       currency: 'INR',
       maximumFractionDigits: 0,
     }).format(price);
+  };
+
+  const finalizeQuote = async () => {
+    setIsSaving(true);
+    try {
+      // Get the name of the selected package
+      const selectedPackageDetails = packages.find(pkg => pkg.id === selectedPackage);
+      
+      // Get the names of the selected options
+      const selectedOptionNames = selectedOptions.map(optionId => {
+        const option = additionalOptions.find(opt => opt.id === optionId);
+        return option ? option.name : '';
+      });
+      
+      // Send email with quote data
+      const emailSent = await sendQuoteEmail({
+        selectedPackage: selectedPackageDetails?.name,
+        selectedOptions: selectedOptionNames,
+        totalPrice
+      });
+      
+      if (emailSent) {
+        toast.success("Quote finalized! We'll contact you soon.");
+      } else {
+        toast.error("Failed to finalize quote. Please try again or contact us directly.");
+      }
+    } catch (error) {
+      console.error('Error finalizing quote:', error);
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+  
+  const saveQuote = () => {
+    toast.success("Quote saved! You can access it from your account.");
   };
   
   const selectedPackageDetails = packages.find(pkg => pkg.id === selectedPackage);
@@ -194,7 +233,7 @@ const QuoteCalculator = () => {
               key={option.id}
               className={`p-4 border rounded-lg cursor-pointer transition-all ${
                 selectedOptions.includes(option.id)
-                  ? 'border-primary bg-primary/5'
+                  ? 'border-primary bg-primary/5 dark:bg-primary/10'
                   : 'border-input hover:border-primary/50'
               }`}
               onClick={() => toggleOption(option.id)}
@@ -215,7 +254,7 @@ const QuoteCalculator = () => {
         </div>
       </div>
       
-      <div className="bg-secondary p-6 rounded-lg">
+      <div className="bg-secondary p-6 rounded-lg dark:bg-secondary/80">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div>
             <h3 className="text-xl font-medium">Your Estimated Quote</h3>
@@ -230,12 +269,16 @@ const QuoteCalculator = () => {
             This is an estimate based on your selections. Contact us for a detailed quote and consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" className="btn-primary inline-flex items-center">
-              Finalize Quote <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-            <button className="btn-secondary">
-              Save Quote
+            <button 
+              onClick={finalizeQuote} 
+              disabled={isSaving} 
+              className="btn-primary inline-flex items-center justify-center"
+            >
+              {isSaving ? 'Processing...' : 'Finalize Quote'} {!isSaving && <ArrowRight className="ml-2 h-4 w-4" />}
             </button>
+            <Link to="/contact" className="btn-secondary inline-flex items-center justify-center">
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>

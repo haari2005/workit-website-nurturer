@@ -40,11 +40,19 @@ export function ThemeProvider({
         .matches
         ? "dark"
         : "light";
+      
       root.classList.add(systemTheme);
+      
+      // Add a transition class for smooth theme changes
+      root.style.transition = "background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease";
+      
       return;
     }
 
     root.classList.add(theme);
+    
+    // Add a transition class for smooth theme changes
+    root.style.transition = "background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease";
   }, [theme]);
 
   const value = {
